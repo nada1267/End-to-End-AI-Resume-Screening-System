@@ -54,6 +54,6 @@ This project aims to develop an AI-powered system that automates the resume scre
 
 
 ## **System architecture**
-<img width="1024" height="1024" alt="Gemini_Generated_Image_7xop97xop97xop97" src="https://github.com/user-attachments/assets/5f434b92-29b6-4664-bd7e-40e8dd56903e" />
+<img width="1006" height="478" alt="Gemini_Generated_Image_z6zhrdz6zhrdz6zh" src="https://github.com/user-attachments/assets/bd91242c-212f-4e8f-ae87-4e57527cdd19" />
 
  
