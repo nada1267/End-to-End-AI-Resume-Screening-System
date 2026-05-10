@@ -1,17 +1,26 @@
 # End-to-End-AI-Resume-Screening-System
 This project aims to develop an AI-powered system that automates the resume screening process . the system will analyze resumes by extracting key information like skills, experience and education, and compare them  to job requirements . using machine learning algorithms, it will based on how well they match the job description.
 ## The goal of the project? 
+## Current Features
 
- ✅ Upload Resumes (**PDF or Text**).
- 
- ✅ Job Description as input.
- 
- ✅ Text analysis.
- 
- ✅ calculate matching score.
- 
- ✅ Rank Job Aplliers.
+✅ Upload resumes (PDF or Text)
 
+✅ Resume text extraction and preprocessing
+
+✅ NLP-based text analysis using TF-IDF
+
+✅ Resume classification using Machine Learning
+
+✅ Flask-based web application
+
+
+## Upcoming Features
+
+🚧 Job description matching
+
+🚧 Matching score calculation
+
+🚧 Applicant ranking system
 # Technology Used
 - [Python 3.x](https://www.python.org)
 - [Scikit-learn](https://scikit-learn.org/stable/)
@@ -26,28 +35,16 @@ This project aims to develop an AI-powered system that automates the resume scre
 
 ```text
 <project root directory>
-├── backend/
-│   ├── app/
-│   │   ├── main.py               # FastAPI application for handling requests
-│   │   ├── models.py             # ML model loading and inference
-│   │   ├── preprocessing.py      # Text preprocessing for resumes
-│   │   ├── requirements.py       # Job requirements parsing and comparison
-│   │   ├── utils.py              # Utility functions (file handling, errors, etc.)
-│   │   └── mlflow_tracking.py    # MLflow integration
-│   ├── Dockerfile                # Backend Docker config
-│   └── requirements.txt          # Backend dependencies
+├── production/
+│   ├── app.py                     # Flask application
+│   ├── best_model.pkl             # Trained ML model
+│   ├── tfidf_vectorizer.pkl       # TF-IDF vectorizer
+│   ├── requirements.txt           # Python dependencies
+│   ├── Dockerfile                 # Docker configuration
+│   │
+│   └── templates/
+│       └── index.html             # Frontend UI page
 │
-├── frontend/
-│   ├── public/                   # Static assets
-│   ├── src/
-│   │   ├── components/           # React components
-│   │   ├── App.js                # Main React app
-│   │   ├── api.js                # API layer (Axios)
-│   │   └── index.js              # Entry point
-│   ├── Dockerfile                # Frontend Docker config
-│   └── package.json              # Frontend dependencies
-│
-├── docker-compose.yml            # Multi-container setup
 ├── .gitignore
 └── README.md
 ```
