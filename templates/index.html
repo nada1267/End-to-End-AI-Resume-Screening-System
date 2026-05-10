@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Classifier</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Inter', sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        .main-card {
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: none;
+            background: #ffffff;
+        }
+        .btn-predict {
+            background-color: #4e73df;
+            border: none;
+            border-radius: 12px;
+            padding: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-predict:hover {
+            background-color: #2e59d9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(78, 115, 223, 0.4);
+        }
+        .result-section {
+            background-color: #f8f9fc;
+            border-left: 6px solid #4e73df;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 25px;
+        }
+        .file-input-label {
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card main-card p-5">
+                <div class="text-center mb-4">
+                    <h2 class="fw-bold text-primary">Resume Classifier</h2>
+                    <p class="text-secondary">Upload a PDF resume to identify the job category</p>
+                </div>
+
+                <form method="POST" action="/predict" enctype="multipart/form-data">
+                    <div class="mb-4">
+                        <label for="resume" class="form-label file-input-label">Select Resume (PDF Only)</label>
+                        <input class="form-control form-control-lg" type="file" name="resume" id="resume" accept=".pdf" required>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-predict btn-lg" id="predictBtn">
+                            Analyze Resume
+                        </button>
+                    </div>
+                </form>
+
+                {% if prediction %}
+                    <div class="result-section">
+                        <small class="text-uppercase text-muted fw-bold">Classification Result:</small>
+                        <h3 class="text-dark mt-1 mb-0">{{ prediction }}</h3>
+                    </div>
+                {% endif %}
+            </div>
+            
+            <div class="text-center mt-4">
+                <small class="text-muted">Smart Recruitment Assistant &copy; 2026</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const btn = document.getElementById('predictBtn');
+    const fileInput = document.getElementById('resume');
+    
+    btn.addEventListener('click', function() {
+        if(fileInput.value !== "") {
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing...';
+        }
+    });
+</script>
+
+</body>
+</html>
